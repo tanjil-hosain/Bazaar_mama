@@ -1,3 +1,27 @@
+<?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once 'config/db.php';
+
+$msg = ""; 
+$type = "";
+
+
+if (isset($_SESSION['flash_msg'])) {
+    $msg = $_SESSION['flash_msg'];
+    $type = $_SESSION['flash_type'];
+    
+    
+    unset($_SESSION['flash_msg']);
+    unset($_SESSION['flash_type']);
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
