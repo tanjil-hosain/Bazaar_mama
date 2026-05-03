@@ -7,7 +7,46 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    
+    <style>
+        body {
+            background: linear-gradient(135deg, #f3f9ff 0%, #eef1f3 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        .register-card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            background: #ffffff;
+        }
+        .form-control {
+            border-radius: 8px;
+            padding: 10px 12px;
+            border: 1px solid #ced4da;
+        }
+        .form-control:focus {
+            box-shadow: 0 0 0 3px rgba(9, 132, 227, 0.2);
+            border-color: #0984e3;
+        }
+        .btn-register {
+            background: #0984e3;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-register:hover {
+            background: #2d3436;
+            transform: translateY(-2px);
+        }
+        .brand-logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #0984e3;
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
 <body class="d-flex align-items-center justify-content-center py-5">
 
