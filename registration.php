@@ -19,6 +19,33 @@ if (isset($_SESSION['flash_msg'])) {
     unset($_SESSION['flash_type']);
 }
 
+if (isset($_POST['registration'])) {
+    $name = trim($_POST['name']);
+    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $phone = trim($_POST['phone']);
+
+    try {
+        $stmt = $pdo->prepare("INSERT INTO users (name, email, password, phone, role) VALUES (?, ?, ?, ?, 'user')");
+        if($stmt->execute([$name, $email, $password, $phone])) {
+            
+
+            $_SESSION['flash_msg'] = "🎉 Registration Successful, Go to Login.";
+            $_SESSION['flash_type'] = "success";
+
+            header("Location:registration.php");
+            exit();
+        }
+    } catch (\PDOException $e) {
+
+        if ($e->getCode() == 23000) {
+            $msg = "❌ Email Already Registered!";
+        } else {
+            $msg = "❌ Something went wrong. Please try again.";
+        }
+        $type = "danger";
+    }
+}
 
 ?>
 
