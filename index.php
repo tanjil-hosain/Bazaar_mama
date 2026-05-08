@@ -61,3 +61,19 @@ $products = $pdo->query('SELECT * FROM products ORDER BY id DESC')->fetchAll();
                         </div>
                     </div>
                 </div>
+<?php endforeach; ?>
+        <?php else: ?>
+            <div class="col-12 text-center py-5">
+                <div class="p-5 bg-white rounded-4 shadow-sm border-0">
+                    <i class="fa-regular fa-folder-open text-muted mb-3" style="font-size: 60px;"></i>
+                    <p class="text-muted fs-5 mb-0">No active records stored inside current inventories yet.</p>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
+
+<?php 
+
+include_once 'includes/footer.php'; 
+?>
