@@ -8,7 +8,7 @@ $products = $pdo->query('SELECT * FROM products ORDER BY id DESC')->fetchAll();
 ?>
 
 <div class="container mt-4">
-    
+
     <div class="hero-banner d-flex align-items-center">
         <div class="row align-items-center">
             <div class="col-md-7">
@@ -28,19 +28,19 @@ $products = $pdo->query('SELECT * FROM products ORDER BY id DESC')->fetchAll();
         <span class="text-muted small fw-semibold">Live Feed Output</span>
     </div>
 
-     <div class="row g-4">
-        <?php if(count($products) > 0): ?>
-            <?php foreach($products as $p): ?>
+    <div class="row g-4">
+        <?php if (count($products) > 0): ?>
+            <?php foreach ($products as $p): ?>
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="card product-card h-100 position-relative">
                         <span class="product-badge shadow-sm">In Stock: <?= htmlspecialchars($p['stock']) ?></span>
-                        
+
                         <a href="product_details.php?id=<?= $p['id'] ?>" class="text-decoration-none">
                             <div class="bg-light d-flex align-items-center justify-content-center" style="height: 240px; overflow:hidden;">
                                 <img src="assets/images/<?= htmlspecialchars($p['image']) ?>" class="w-100 h-100" style="object-fit: cover;" alt="Market Product">
                             </div>
                         </a>
-                        
+
                         <div class="card-body d-flex flex-column p-4">
                             <h5 class="fw-bold text-dark mb-1 text-truncate" title="<?= htmlspecialchars($p['name']) ?>">
                                 <a href="product_details.php?id=<?= $p['id'] ?>" class="text-decoration-none text-dark hover-primary">
@@ -48,7 +48,7 @@ $products = $pdo->query('SELECT * FROM products ORDER BY id DESC')->fetchAll();
                                 </a>
                             </h5>
                             <p class="text-muted small text-truncate mb-3"><?= htmlspecialchars($p['description']) ?></p>
-                            
+
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <div class="d-flex flex-column">
                                     <small class="text-muted text-uppercase font-monospace" style="font-size: 10px; letter-spacing: 0.5px;">Price</small>
@@ -61,7 +61,7 @@ $products = $pdo->query('SELECT * FROM products ORDER BY id DESC')->fetchAll();
                         </div>
                     </div>
                 </div>
-<?php endforeach; ?>
+            <?php endforeach; ?>
         <?php else: ?>
             <div class="col-12 text-center py-5">
                 <div class="p-5 bg-white rounded-4 shadow-sm border-0">
@@ -73,7 +73,7 @@ $products = $pdo->query('SELECT * FROM products ORDER BY id DESC')->fetchAll();
     </div>
 </div>
 
-<?php 
+<?php
 
-include_once 'includes/footer.php'; 
+include_once 'includes/footer.php';
 ?>
