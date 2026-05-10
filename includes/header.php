@@ -8,7 +8,86 @@ if (session_status() === PHP_SESSION_NONE) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BazaarMama - Modern E-Commerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar-custom {
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+        .navbar-brand-custom {
+            font-weight: 800;
+            color: #0984e3;
+            letter-spacing: 0.5px;
+        }
+        .nav-link-custom {
+            font-weight: 600;
+            color: #2d3436 !important;
+            transition: color 0.2s ease;
+        }
+        .nav-link-custom:hover {
+            color: #0984e3 !important;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            border-radius: 24px;
+            padding: 60px;
+            color: white;
+            margin-bottom: 40px;
+            box-shadow: 0 12px 30px rgba(9, 132, 227, 0.2);
+        }
+        .product-card {
+            border: none;
+            border-radius: 16px;
+            background: #ffffff;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(4px);
+            color: #2d3436;
+            font-weight: 700;
+            border-radius: 30px;
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+        .btn-modern-primary {
+            background: #0984e3;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            padding: 10px 20px;
+            transition: all 0.2s ease;
+        }
+        .btn-modern-primary:hover {
+            background: #2d3436;
+            color: white;
+        }
+        .footer-custom {
+            background-color: #96ddfef4;
+            color: #b2bec3;
+            padding: 60px 0 30px 0;
+            margin-top: 80px;
+        }
+    </style>
 </head>
 <body>
      <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
