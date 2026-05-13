@@ -22,6 +22,13 @@
                         <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Support Center</a></li>
                     </ul>
                 </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-white fw-bold mb-3">Contact Center</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i>Mirpur, Dhaka, Bangladesh</li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i>support@bazaarmama.com</li>
+                    </ul>
+                </div>
 
             </div>
         </div>
