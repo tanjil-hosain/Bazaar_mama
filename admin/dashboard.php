@@ -51,6 +51,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             <a href="add_unit.php"><i class="fa-solid fa-scale-balanced me-2"></i> Product Units</a>
 
             
+            <div class="px-4 py-2 text-uppercase text-white small fw-bold" style="font-size: 11px; letter-spacing: 1px; opacity: 0.6;">Products</div>
+            <a href="add_product.php"><i class="fa-solid fa-plus me-2"></i> Add Product</a>
+            <a href="manage_products.php"><i class="fa-solid fa-boxes-stacked me-2"></i> Available Products</a>
 
         </div>
     </div>
