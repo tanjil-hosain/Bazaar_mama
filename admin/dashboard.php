@@ -74,6 +74,56 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                 <i class="fa-regular fa-calendar me-2"></i><?php echo date('F d, Y'); ?>
             </div>
         </div>
+                <div class="row g-4 mt-2">
+            <div class="col-md-3">
+                <div class="card stat-card bg-white p-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase fw-bold small">Total Sales</h6>
+                            <h3 class="fw-bold text-success m-0">৳ 1,45,800</h3>
+                        </div>
+                        <div class="bg-success-subtle p-3 rounded-circle text-success fs-4"><i class="fa-solid fa-wallet"></i></div>
+                    </div>
+                    <div class="mt-2 small text-success fw-medium"><i class="fa-solid fa-arrow-trend-up me-1"></i>+12% up from yesterday</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card bg-white p-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase fw-bold small">Net Profit</h6>
+                            <h3 class="fw-bold text-primary m-0">৳ 32,450</h3>
+                        </div>
+                        <div class="bg-primary-subtle p-3 rounded-circle text-primary fs-4"><i class="fa-solid fa-chart-line"></i></div>
+                    </div>
+                    <div class="mt-2 small text-primary fw-medium"><i class="fa-solid fa-arrow-trend-up me-1"></i>Stable margin</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card bg-white p-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase fw-bold small">Pending Orders</h6>
+                            <h3 class="fw-bold text-warning m-0">18 New</h3>
+                        </div>
+                        <div class="bg-warning-subtle p-3 rounded-circle text-warning fs-4"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                    </div>
+                    <div class="mt-2 small text-danger fw-medium"><i class="fa-solid fa-clock me-1"></i>Requires dispatch attention</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card bg-white p-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase fw-bold small">Products Sold</h6>
+                            <h3 class="fw-bold text-info m-0">540 Pcs</h3>
+                        </div>
+                        <div class="bg-info-subtle p-3 rounded-circle text-info fs-4"><i class="fa-solid fa-basket-shopping"></i></div>
+                    </div>
+                    <div class="mt-2 small text-info fw-medium"><i class="fa-solid fa-bolt me-1"></i>Fast moving items</div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
