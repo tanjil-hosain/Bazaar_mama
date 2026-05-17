@@ -124,6 +124,23 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                 </div>
             </div>
         </div>
+                <div class="card table-card mt-5 p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="fw-bold m-0 text-dark"><i class="fa-solid fa-list-check me-2 text-secondary"></i>Recent Transactions</h5>
+                <span class="badge bg-primary-subtle text-primary rounded-pill px-3 py-2">Live Logs</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle m-0">
+                    <thead class="table-light">
+                        <tr><th>Order ID</th><th>Customer Name</th><th>Items</th><th>Total Amount</th><th>Status</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold text-secondary">#BM-9081</td><td>Rakibul Hasan</td><td>Premium T-Shirt (x2)</td><td>৳ 1,200</td><td><span class="badge bg-success rounded-pill px-2.5">Delivered</span></td></tr>
+                        <tr><td class="fw-bold text-secondary">#BM-9082</td><td>Anika Tahsin</td><td>Wireless Earbuds (x1)</td><td>৳ 2,450</td><td><span class="badge bg-warning text-dark rounded-pill px-2.5">Pending</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 
