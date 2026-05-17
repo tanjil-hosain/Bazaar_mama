@@ -64,6 +64,17 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
         </div>
     </div>
+    <div class="main-container">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold text-dark m-0">Business Analytics</h2>
+                <p class="text-muted">Welcome back, Mama! Live track of your system sales & updates.</p>
+            </div>
+            <div class="bg-white p-2 rounded shadow-sm text-muted fw-medium">
+                <i class="fa-regular fa-calendar me-2"></i><?php echo date('F d, Y'); ?>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
