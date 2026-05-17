@@ -33,7 +33,24 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BazaarMama - Business Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root { --sidebar-bg: #1e293b; --sidebar-hover: #334155; --primary-color: #0f172a; }
+        body { background-color: #f8fafc; font-family: 'Segoe UI', Roboto, sans-serif; }
+        .sidebar { height: 100vh; background: var(--sidebar-bg); color: white; position: fixed; width: 260px; box-shadow: 4px 0 10px rgba(0,0,0,0.1); }
+        .sidebar .brand { padding: 20px; background: var(--primary-color); font-size: 1.25rem; }
+        .sidebar a { color: #cbd5e1; text-decoration: none; display: block; padding: 14px 24px; font-weight: 500; transition: all 0.2s; }
+        .sidebar a:hover, .sidebar a.active { background: var(--sidebar-hover); color: #38bdf8; border-left: 4px solid #38bdf8; }
+        .main-content { margin-left: 260px; padding: 40px; }
+        .stat-card { border: none; border-radius: 15px; transition: transform 0.3s, box-shadow: 0 10px 20px rgba(0,0,0,0.03); }
+        .stat-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        
+
+        .sidebar-footer-buttons { position: absolute; bottom: 15px; width: 100%; padding: 0 20px; }
+        .table-card { border: none; border-radius: 15px; background: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.02); }
+    </style>
 </head>
 
 <body>
