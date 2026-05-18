@@ -12,7 +12,12 @@ if (isset($_GET['delete_id'])) {
     $stmt = $pdo->prepare("DELETE FROM categories WHERE id = ?");
     if($stmt->execute([$delete_id])) $msg = "🗑️ Category removed successfully!";
 }
-
+//insert
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_category'])) {
+    $name = $_POST['cat_name'];
+    $stmt = $pdo->prepare("INSERT INTO categories (name) VALUES (?)");
+    if($stmt->execute([$name])) $msg = "✅ Category '$name' created successfully!";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
