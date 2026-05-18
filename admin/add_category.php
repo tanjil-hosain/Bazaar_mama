@@ -44,6 +44,32 @@
                 </form>
             </div>
 
+            <div class="card border-0 shadow-sm p-4 rounded-4 bg-white">
+                <h5 class="fw-bold mb-3 text-secondary">Existing Categories</h5>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle m-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Category Name</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($categories as $c): ?>
+                                <tr>
+                                    <td>#<?= $c['id'] ?></td>
+                                    <td class="fw-bold text-dark"><?= htmlspecialchars($c['name']) ?></td>
+                                    <td class="text-center">
+                                        <a href="add_category.php?delete_id=<?= $c['id'] ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this category?')"><i class="fa-solid fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
     </div>
 </body>
