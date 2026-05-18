@@ -4,6 +4,15 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') { head
 require_once '../config/db.php';
 
 $msg = "";
+
+
+//Delete
+if (isset($_GET['delete_id'])) {
+    $delete_id = $_GET['delete_id'];
+    $stmt = $pdo->prepare("DELETE FROM categories WHERE id = ?");
+    if($stmt->execute([$delete_id])) $msg = "🗑️ Category removed successfully!";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
