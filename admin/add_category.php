@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_category'])) {
     $stmt = $pdo->prepare("INSERT INTO categories (name) VALUES (?)");
     if($stmt->execute([$name])) $msg = "✅ Category '$name' created successfully!";
 }
+$categories = $pdo->query("SELECT * FROM categories ORDER BY id DESC")->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
