@@ -30,6 +30,18 @@
             <h3 class="fw-bold text-dark mb-4"><i class="fa-solid fa-layer-group text-info me-2"></i>Product Types Setup</h3>
 
             <?php if (!empty($msg)): ?><div class="alert alert-success border-0 shadow-sm"><?= $msg ?></div><?php endif; ?>
+                            <div class="card border-0 shadow-sm p-4 rounded-4 bg-white mb-4">
+                <form action="" method="POST">
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold text-secondary">Product Type Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light text-muted"><i class="fa-solid fa-box"></i></span>
+                            <input type="text" name="type_name" class="form-control bg-light" placeholder="e.g. Electronics, Clothing" required>
+                        </div>
+                    </div>
+                    <button type="submit" name="add_type" class="btn btn-info w-100 py-2.5 fw-bold shadow-sm text-white"><i class="fa-solid fa-plus me-2"></i>Add Product Type</button>
+                </form>
+            </div>
 
         </div>
     </div>
