@@ -12,6 +12,13 @@ if (isset($_GET['delete_id'])) {
     if($stmt->execute([$delete_id])) $msg = "🗑️ Product Type removed successfully!";
 }
 
+//insert
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_type'])) {
+    $type_name = $_POST['type_name'];
+    $stmt = $pdo->prepare("INSERT INTO product_types (type_name) VALUES (?)");
+    if($stmt->execute([$type_name])) $msg = "✅ Product Type '$type_name' added successfully!";
+}
+
 ?>
 
 <!DOCTYPE html>
