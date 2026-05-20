@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_type'])) {
     $stmt = $pdo->prepare("INSERT INTO product_types (type_name) VALUES (?)");
     if($stmt->execute([$type_name])) $msg = "✅ Product Type '$type_name' added successfully!";
 }
-
+$types = $pdo->query("SELECT * FROM product_types ORDER BY id DESC")->fetchAll();
 ?>
 
 <!DOCTYPE html>
