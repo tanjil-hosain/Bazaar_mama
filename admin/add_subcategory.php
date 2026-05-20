@@ -1,6 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') { header("Location: ../login.php"); exit(); }
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
+    header("Location: ../login.php");
+    exit();
+}
 require_once '../config/db.php';
 
 $msg = "";
@@ -9,7 +12,7 @@ $msg = "";
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
     $stmt = $pdo->prepare("DELETE FROM sub_categories WHERE id = ?");
-    if($stmt->execute([$delete_id])) $msg = "🗑️ Sub-Category removed successfully!";
+    if ($stmt->execute([$delete_id])) $msg = "🗑️ Sub-Category removed successfully!";
 }
 
 //insert
@@ -17,8 +20,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_subcategory'])) {
     $name = $_POST['subcat_name'];
     $type_id = $_POST['product_type_id'];
     $stmt = $pdo->prepare("INSERT INTO sub_categories (name, product_type_id) VALUES (?, ?)");
-    if($stmt->execute([$name, $type_id])) $msg = "✅ Sub-Category '$name' created successfully!";
+    if ($stmt->execute([$name, $type_id])) $msg = "✅ Sub-Category '$name' created successfully!";
 }
+$types = $pdo->query("SELECT * FROM product_types")->fetchAll();
+
+
+$subcategories = $pdo->query("
+    SELECT sc.*, pt.type_name 
+    FROM sub_categories sc 
+    LEFT JOIN product_types pt ON sc.product_type_id = pt.id 
+    ORDER BY sc.id DESC
+")->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -31,11 +43,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_subcategory'])) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <style>
-        body { background: #f8fafc; font-family: 'Segoe UI', sans-serif; }
-        .sidebar { height: 100vh; background: #1e293b; color: white; position: fixed; width: 260px; }
-        .sidebar a { color: #cbd5e1; text-decoration: none; display: block; padding: 14px 24px; }
-        .sidebar a:hover, .sidebar a.active { background: #334155; color: #38bdf8; border-left: 4px solid #38bdf8; }
-        .main-content { margin-left: 260px; padding: 40px; }
+        body {
+            background: #f8fafc;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .sidebar {
+            height: 100vh;
+            background: #1e293b;
+            color: white;
+            position: fixed;
+            width: 260px;
+        }
+
+        .sidebar a {
+            color: #cbd5e1;
+            text-decoration: none;
+            display: block;
+            padding: 14px 24px;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: #334155;
+            color: #38bdf8;
+            border-left: 4px solid #38bdf8;
+        }
+
+        .main-content {
+            margin-left: 260px;
+            padding: 40px;
+        }
     </style>
 </head>
 
