@@ -6,6 +6,14 @@
     <title>Sub-Categories - BazaarMama</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        body { background: #f8fafc; font-family: 'Segoe UI', sans-serif; }
+        .sidebar { height: 100vh; background: #1e293b; color: white; position: fixed; width: 260px; }
+        .sidebar a { color: #cbd5e1; text-decoration: none; display: block; padding: 14px 24px; }
+        .sidebar a:hover, .sidebar a.active { background: #334155; color: #38bdf8; border-left: 4px solid #38bdf8; }
+        .main-content { margin-left: 260px; padding: 40px; }
+    </style>
 </head>
 
 <body>
