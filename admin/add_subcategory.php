@@ -11,6 +11,14 @@ if (isset($_GET['delete_id'])) {
     $stmt = $pdo->prepare("DELETE FROM sub_categories WHERE id = ?");
     if($stmt->execute([$delete_id])) $msg = "🗑️ Sub-Category removed successfully!";
 }
+
+//insert
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_subcategory'])) {
+    $name = $_POST['subcat_name'];
+    $type_id = $_POST['product_type_id'];
+    $stmt = $pdo->prepare("INSERT INTO sub_categories (name, product_type_id) VALUES (?, ?)");
+    if($stmt->execute([$name, $type_id])) $msg = "✅ Sub-Category '$name' created successfully!";
+}
 ?>
 
 <!DOCTYPE html>
