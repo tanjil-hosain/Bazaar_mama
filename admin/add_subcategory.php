@@ -5,6 +5,12 @@ require_once '../config/db.php';
 
 $msg = "";
 
+//delete
+if (isset($_GET['delete_id'])) {
+    $delete_id = $_GET['delete_id'];
+    $stmt = $pdo->prepare("DELETE FROM sub_categories WHERE id = ?");
+    if($stmt->execute([$delete_id])) $msg = "🗑️ Sub-Category removed successfully!";
+}
 ?>
 
 <!DOCTYPE html>
