@@ -31,10 +31,26 @@
             <h3 class="fw-bold text-dark mb-4"><i class="fa-solid fa-folder-tree text-success me-2"></i>Sub-Categories Setup</h3>
 
             <?php if (!empty($msg)): ?><div class="alert alert-success border-0 shadow-sm"><?= $msg ?></div><?php endif; ?>
+            <div class="card border-0 shadow-sm p-4 rounded-4 bg-white mb-4">
+                <form action="" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-secondary">Select Product Type</label>
+                        <select name="product_type_id" class="form-select bg-light" required>
+                            <option value="">-- Choose Product Type --</option>
+                            <?php foreach ($types as $t): ?><option value="<?= $t['id'] ?>"><?= $t['type_name'] ?></option><?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold text-secondary">Sub-Category Name</label>
+                        <input type="text" name="subcat_name" class="form-control bg-light" placeholder="e.g. T-Shirt, Gadgets" required>
+                    </div>
+                    <button type="submit" name="add_subcategory" class="btn btn-success w-100 py-2.5 fw-bold shadow-sm text-white"><i class="fa-solid fa-plus me-2"></i>Add Sub-Category</button>
+                </form>
+            </div>
 
 
 
-            
+
         </div>
     </div>
 </body>
