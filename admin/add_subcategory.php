@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') { header("Location: ../login.php"); exit(); }
+require_once '../config/db.php';
+
+$msg = "";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +15,7 @@
     <title>Sub-Categories - BazaarMama</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
+
     <style>
         body { background: #f8fafc; font-family: 'Segoe UI', sans-serif; }
         .sidebar { height: 100vh; background: #1e293b; color: white; position: fixed; width: 260px; }
