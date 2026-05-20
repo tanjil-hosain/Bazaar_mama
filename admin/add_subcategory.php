@@ -49,8 +49,33 @@
             </div>
 
 
-
-
+            <div class="card border-0 shadow-sm p-4 rounded-4 bg-white">
+                <h5 class="fw-bold mb-3 text-secondary">Existing Sub-Categories</h5>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle m-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Sub-Category</th>
+                                <th>Linked Product Type</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($subcategories as $sc): ?>
+                                <tr>
+                                    <td>#<?= $sc['id'] ?></td>
+                                    <td class="fw-bold text-dark"><?= htmlspecialchars($sc['name']) ?></td>
+                                    <td><span class="badge bg-info-subtle text-info px-2 py-1"><?= htmlspecialchars($sc['type_name'] ?? 'N/A') ?></span></td>
+                                    <td class="text-center">
+                                        <a href="add_subcategory.php?delete_id=<?= $sc['id'] ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this sub-category?')"><i class="fa-solid fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </body>
