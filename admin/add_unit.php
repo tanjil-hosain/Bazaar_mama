@@ -25,15 +25,24 @@
             <a href="manage_products.php"><i class="fa-solid fa-boxes-stacked me-2"></i> Available Products</a>
         </div>
     </div>
-        <div class="main-content">
+    <div class="main-content">
         <div class="container-fluid" style="max-width: 700px; margin-left: 0;">
             <h3 class="fw-bold text-dark mb-4"><i class="fa-solid fa-scale-balanced text-warning me-2"></i>Product Units Setup</h3>
-            
-            <?php if(!empty($msg)): ?><div class="alert alert-success border-0 shadow-sm"><?= $msg ?></div><?php endif; ?>
-            
 
-
-
+            <?php if (!empty($msg)): ?><div class="alert alert-success border-0 shadow-sm"><?= $msg ?></div><?php endif; ?>
+            <div class="card border-0 shadow-sm p-4 rounded-4 bg-white mb-4">
+                <form action="" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-secondary">Unit Full Name</label>
+                        <input type="text" name="unit_name" class="form-control bg-light" placeholder="e.g. Kilogram, Piece" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold text-secondary">Short Name</label>
+                        <input type="text" name="unit_short" class="form-control bg-light" placeholder="e.g. KG, Pcs" required>
+                    </div>
+                    <button type="submit" name="add_unit" class="btn btn-warning w-100 py-2.5 fw-bold shadow-sm text-dark"><i class="fa-solid fa-plus me-2"></i>Add Unit</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>
