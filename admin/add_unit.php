@@ -25,6 +25,17 @@
             <a href="manage_products.php"><i class="fa-solid fa-boxes-stacked me-2"></i> Available Products</a>
         </div>
     </div>
+        <div class="main-content">
+        <div class="container-fluid" style="max-width: 700px; margin-left: 0;">
+            <h3 class="fw-bold text-dark mb-4"><i class="fa-solid fa-scale-balanced text-warning me-2"></i>Product Units Setup</h3>
+            
+            <?php if(!empty($msg)): ?><div class="alert alert-success border-0 shadow-sm"><?= $msg ?></div><?php endif; ?>
+            
+
+
+
+        </div>
+    </div>
 </body>
 
 </html>
