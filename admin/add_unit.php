@@ -43,6 +43,33 @@
                     <button type="submit" name="add_unit" class="btn btn-warning w-100 py-2.5 fw-bold shadow-sm text-dark"><i class="fa-solid fa-plus me-2"></i>Add Unit</button>
                 </form>
             </div>
+            <div class="card border-0 shadow-sm p-4 rounded-4 bg-white">
+                <h5 class="fw-bold mb-3 text-secondary">Existing Product Units</h5>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle m-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Unit Name</th>
+                                <th>Short Code</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($units as $u): ?>
+                                <tr>
+                                    <td>#<?= $u['id'] ?></td>
+                                    <td class="fw-bold text-dark"><?= htmlspecialchars($u['unit_name']) ?></td>
+                                    <td><span class="badge bg-light text-dark border"><?= htmlspecialchars($u['short_name']) ?></span></td>
+                                    <td class="text-center">
+                                        <a href="add_unit.php?delete_id=<?= $u['id'] ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this unit?')"><i class="fa-solid fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </body>
