@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_unit'])) {
     if($stmt->execute([$name, $short])) $msg = "✅ Unit '$name' created successfully!";
 }
 
+$units = $pdo->query("SELECT * FROM product_units ORDER BY id DESC")->fetchAll();
 ?>
 
 <!DOCTYPE html>
