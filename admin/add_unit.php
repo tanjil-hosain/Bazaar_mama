@@ -12,6 +12,14 @@ if (isset($_GET['delete_id'])) {
     if($stmt->execute([$delete_id])) $msg = "🗑️ Unit removed successfully!";
 }
 
+//insert
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_unit'])) {
+    $name = $_POST['unit_name'];
+    $short = $_POST['unit_short'];
+    $stmt = $pdo->prepare("INSERT INTO product_units (unit_name, short_name) VALUES (?, ?)");
+    if($stmt->execute([$name, $short])) $msg = "✅ Unit '$name' created successfully!";
+}
+
 ?>
 
 <!DOCTYPE html>
