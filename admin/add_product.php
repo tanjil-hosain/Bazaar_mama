@@ -12,7 +12,7 @@
 
 <body class="py-5">
     <div class="container" style="max-width: 850px;">
-               <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
             <div class="d-flex gap-2">
                 <a href="dashboard.php" class="btn btn-outline-dark border-0 fw-bold">
                     <i class="fa-solid fa-arrow-left me-2"></i> Back to Dashboard
@@ -23,6 +23,12 @@
             </div>
             <span class="text-muted small font-monospace">Products Engine</span>
         </div>
+                <?php if(!empty($msg)): ?>
+            <div class="alert alert-<?= $type ?> alert-dismissible fade show rounded-3 shadow-sm mb-4" role="alert">
+                <?= $msg ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        <?php endif; ?>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
