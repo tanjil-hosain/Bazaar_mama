@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BazaarMama - Add Product</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    
+
+<body class="py-5">
+    <div class="container" style="max-width: 850px;">
+               <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex gap-2">
+                <a href="dashboard.php" class="btn btn-outline-dark border-0 fw-bold">
+                    <i class="fa-solid fa-arrow-left me-2"></i> Back to Dashboard
+                </a>
+                <a href="../index.php" target="_blank" class="btn btn-outline-info fw-bold text-dark">
+                    <i class="fa-solid fa-globe me-2"></i> Visit Site
+                </a>
+            </div>
+            <span class="text-muted small font-monospace">Products Engine</span>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
