@@ -23,12 +23,26 @@
             </div>
             <span class="text-muted small font-monospace">Products Engine</span>
         </div>
-                <?php if(!empty($msg)): ?>
+        <?php if (!empty($msg)): ?>
             <div class="alert alert-<?= $type ?> alert-dismissible fade show rounded-3 shadow-sm mb-4" role="alert">
                 <?= $msg ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         <?php endif; ?>
+
+        <div class="card product-form-card">
+            <div class="card-body p-5">
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <div class="bg-primary text-white d-flex align-items-center justify-content-center rounded-3" style="width: 48px; height: 48px;">
+                        <i class="fa-solid fa-box-open fs-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold text-dark m-0">Upload Product</h4>
+                        <p class="text-muted small m-0">Fill in details matching your e-commerce 12-field database schema</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
