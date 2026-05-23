@@ -113,6 +113,9 @@
                         <input type="file" name="image" class="form-control" accept="image/*" required>
                         <div class="form-text text-muted">Upload high-res images. Destination node targets `assets/images/` path.</div>
                     </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold text-white rounded-3 shadow-sm py-3" style="background-color: #0984e3; border: none;">
+                        <i class="fa-solid fa-cloud-arrow-up me-2"></i> Launch Product to Showcase Portal
+                    </button>
                 </form>
             </div>
         </div>
