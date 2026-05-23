@@ -108,6 +108,11 @@
                             </select>
                         </div>
                     </div>
+                    <div class="mb-5">
+                        <label class="form-label fw-semibold text-dark small">Product Showcase Image</label>
+                        <input type="file" name="image" class="form-control" accept="image/*" required>
+                        <div class="form-text text-muted">Upload high-res images. Destination node targets `assets/images/` path.</div>
+                    </div>
                 </form>
             </div>
         </div>
