@@ -68,13 +68,13 @@
                             <input type="number" name="stock" class="form-control" placeholder="0" required>
                         </div>
                     </div>
-                                        <div class="row g-3 mb-4">
+                    <div class="row g-3 mb-4">
                         <div class="col-md-6">
                             <label class="form-label fw-semibold text-dark small">Category Mapping</label>
                             <select name="category_id" class="form-select" required>
                                 <option value="">-- Select Category --</option>
-                                <?php foreach($categories as $cat): ?>
-                                    <option value="<?= $cat['id'] ?>"><?= htmlspecialchars(isset($cat['category_name']) ? $cat['category_name'] : (isset($cat['name']) ? $cat['name'] : 'Category #'.$cat['id'])) ?></option>
+                                <?php foreach ($categories as $cat): ?>
+                                    <option value="<?= $cat['id'] ?>"><?= htmlspecialchars(isset($cat['category_name']) ? $cat['category_name'] : (isset($cat['name']) ? $cat['name'] : 'Category #' . $cat['id'])) ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -82,8 +82,28 @@
                             <label class="form-label fw-semibold text-dark small">Product Type Connection</label>
                             <select name="product_type_id" class="form-select" required>
                                 <option value="">-- Select Type --</option>
-                                <?php foreach($product_types as $pt): ?>
+                                <?php foreach ($product_types as $pt): ?>
                                     <option value="<?= $pt['id'] ?>"><?= htmlspecialchars($pt['type_name']) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-dark small">Sub-Category Relation</label>
+                            <select name="sub_category_id" class="form-select" required>
+                                <option value="">-- Select Sub-Category --</option>
+                                <?php foreach ($sub_categories as $subcat): ?>
+                                    <option value="<?= $subcat['id'] ?>"><?= htmlspecialchars(isset($subcat['sub_category_name']) ? $subcat['sub_category_name'] : (isset($subcat['name']) ? $subcat['name'] : 'Sub-Category #' . $subcat['id'])) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-dark small">Product Unit Standard</label>
+                            <select name="unit_id" class="form-select" required>
+                                <option value="">-- Select Unit Type --</option>
+                                <?php foreach ($units as $u): ?>
+                                    <option value="<?= $u['id'] ?>"><?= htmlspecialchars($u['unit_name']) ?> (<?= htmlspecialchars($u['short_name']) ?>)</option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
