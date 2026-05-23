@@ -46,12 +46,28 @@
                         <label class="form-label fw-semibold text-dark small">Description</label>
                         <textarea name="description" class="form-control" rows="3" placeholder="Write full specifications of the items..."></textarea>
                     </div>
-                                        <div class="mb-4">
+                    <div class="mb-4">
                         <label class="form-label fw-semibold text-dark small">Description</label>
                         <textarea name="description" class="form-control" rows="3" placeholder="Write full specifications of the items..."></textarea>
                     </div>
 
-
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold text-dark small">SKU (Unique Code)</label>
+                            <input type="text" name="sku" class="form-control" placeholder="e.g. BZ-WATCH-02" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold text-dark small">Price (BDT)</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light text-muted">৳</span>
+                                <input type="number" step="0.01" name="price" class="form-control" placeholder="0.00" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold text-dark small">Stock Volume</label>
+                            <input type="number" name="stock" class="form-control" placeholder="0" required>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
