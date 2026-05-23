@@ -41,6 +41,14 @@
                         <p class="text-muted small m-0">Fill in details matching your e-commerce 12-field database schema</p>
                     </div>
                 </div>
+                <form action="add_product.php" method="POST" enctype="multipart/form-data">
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold text-dark small">Description</label>
+                        <textarea name="description" class="form-control" rows="3" placeholder="Write full specifications of the items..."></textarea>
+                    </div>
+
+
+                </form>
             </div>
         </div>
     </div>
