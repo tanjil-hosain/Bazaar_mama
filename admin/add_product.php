@@ -46,6 +46,10 @@
                         <label class="form-label fw-semibold text-dark small">Description</label>
                         <textarea name="description" class="form-control" rows="3" placeholder="Write full specifications of the items..."></textarea>
                     </div>
+                                        <div class="mb-4">
+                        <label class="form-label fw-semibold text-dark small">Description</label>
+                        <textarea name="description" class="form-control" rows="3" placeholder="Write full specifications of the items..."></textarea>
+                    </div>
 
 
                 </form>
