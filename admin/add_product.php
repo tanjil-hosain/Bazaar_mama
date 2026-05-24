@@ -8,6 +8,13 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
 
 require_once '../config/db.php';
 
+$categories     = $pdo->query("SELECT * FROM categories")->fetchAll();
+$product_types  = $pdo->query("SELECT * FROM product_types")->fetchAll();
+$sub_categories = $pdo->query("SELECT * FROM sub_categories")->fetchAll();
+$units          = $pdo->query("SELECT * FROM product_units")->fetchAll();
+
+$msg = ""; $type = "";
+
 ?>
 
 <!DOCTYPE html>
