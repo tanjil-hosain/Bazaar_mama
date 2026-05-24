@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
+    header("Location: ../login.php");
+    exit();
+}
+
+require_once '../config/db.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,10 +21,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8f9fa; }
-        .product-form-card { border: none; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.04); background: #ffffff; }
-        .form-select, .form-control { border-radius: 8px; padding: 10px 12px; }
-        .form-select:focus, .form-control:focus { border-color: #0984e3; box-shadow: 0 0 0 3px rgba(9, 132, 227, 0.1); }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .product-form-card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            background: #ffffff;
+        }
+
+        .form-select,
+        .form-control {
+            border-radius: 8px;
+            padding: 10px 12px;
+        }
+
+        .form-select:focus,
+        .form-control:focus {
+            border-color: #0984e3;
+            box-shadow: 0 0 0 3px rgba(9, 132, 227, 0.1);
+        }
     </style>
 </head>
 
