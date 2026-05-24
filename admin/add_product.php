@@ -26,6 +26,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $product_type_id = !empty($_POST['product_type_id']) ? $_POST['product_type_id'] : null;
     $sub_category_id = !empty($_POST['sub_category_id']) ? $_POST['sub_category_id'] : null;
     $unit_id         = !empty($_POST['unit_id']) ? $_POST['unit_id'] : null;
+
+        $image = isset($_FILES['image']['name']) ? $_FILES['image']['name'] : '';
+    $target_dir = "../assets/images/";
+    
+    if (!empty($image)) {
+        if (!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }
+        $target_file = $target_dir . basename($image);
+        move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+    }
 ?>
 
 <!DOCTYPE html>
