@@ -15,6 +15,17 @@ $units          = $pdo->query("SELECT * FROM product_units")->fetchAll();
 
 $msg = ""; $type = "";
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+    $name            = isset($_POST['name']) ? trim($_POST['name']) : '';
+    $description     = isset($_POST['description']) ? trim($_POST['description']) : '';
+    $sku             = isset($_POST['sku']) ? trim($_POST['sku']) : '';
+    $price           = isset($_POST['price']) ? $_POST['price'] : 0;
+    $stock           = isset($_POST['stock']) ? $_POST['stock'] : 0;
+    $category_id     = !empty($_POST['category_id']) ? $_POST['category_id'] : null;
+    $product_type_id = !empty($_POST['product_type_id']) ? $_POST['product_type_id'] : null;
+    $sub_category_id = !empty($_POST['sub_category_id']) ? $_POST['sub_category_id'] : null;
+    $unit_id         = !empty($_POST['unit_id']) ? $_POST['unit_id'] : null;
 ?>
 
 <!DOCTYPE html>
