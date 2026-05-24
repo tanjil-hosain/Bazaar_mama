@@ -37,6 +37,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $target_file = $target_dir . basename($image);
         move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
     }
+     try {
+   
+        $sql = "INSERT INTO products (name, description, sku, price, stock, image, category_id, product_type_id, sub_category_id, unit_id) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $pdo->prepare($sql);
+        
+        if ($stmt->execute([$name, $description, $sku, $price, $stock, $image, $category_id, $product_type_id, $sub_category_id, $unit_id])) {
+            $msg = "💥 Dynamic Product Synced Successfully, Mama!";
+            $type = "success";
+        }
+    } catch (\PDOException $e) {
+        $msg = "❌ Insertion Failed! Error: " . $e->getMessage();
+        $type = "danger";
+    }
+}
 ?>
 
 <!DOCTYPE html>
