@@ -18,6 +18,9 @@
                 </div>
             <?php endif; ?>
         </div>
+        <div class="card border-0 shadow-sm rounded-4 bg-white p-5">
+            <h4 class="fw-bold text-dark mb-4"><i class="fa-solid fa-pen-to-square text-primary me-2"></i> Edit Product Details</h4>
+        </div>
     </div>
 
 </body>
