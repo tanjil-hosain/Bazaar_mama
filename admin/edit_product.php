@@ -12,6 +12,11 @@
     <div class="container" style="max-width: 850px;">
         <div class="mb-4">
             <a href="manage_products.php" class="btn btn-outline-dark border-0 fw-bold"><i class="fa-solid fa-arrow-left me-2"></i> Back to Inventory</a>
+            <?php if (!empty($msg)): ?>
+                <div class="alert alert-<?= $type ?> alert-dismissible fade show shadow-sm mb-4" role="alert">
+                    <?= $msg ?><button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 
