@@ -25,6 +25,11 @@
                     <label class="form-label fw-semibold small">Product Name</label>
                     <input type="text" name="name" class="form-control" value="<?= htmlspecialchars($product['name']) ?>" required>
                 </div>
+                <div class="mb-4">
+                    <label class="form-label fw-semibold small">Description</label>
+                    <textarea name="description" class="form-control" rows="3"><?= htmlspecialchars($product['description']) ?></textarea>
+                </div>
+
             </form>
         </div>
     </div>
