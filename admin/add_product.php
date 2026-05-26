@@ -13,10 +13,11 @@ $product_types  = $pdo->query("SELECT * FROM product_types")->fetchAll();
 $sub_categories = $pdo->query("SELECT * FROM sub_categories")->fetchAll();
 $units          = $pdo->query("SELECT * FROM product_units")->fetchAll();
 
-$msg = ""; $type = "";
+$msg = "";
+$type = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
+
     $name            = isset($_POST['name']) ? trim($_POST['name']) : '';
     $description     = isset($_POST['description']) ? trim($_POST['description']) : '';
     $sku             = isset($_POST['sku']) ? trim($_POST['sku']) : '';
@@ -27,9 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sub_category_id = !empty($_POST['sub_category_id']) ? $_POST['sub_category_id'] : null;
     $unit_id         = !empty($_POST['unit_id']) ? $_POST['unit_id'] : null;
 
-        $image = isset($_FILES['image']['name']) ? $_FILES['image']['name'] : '';
+    $image = isset($_FILES['image']['name']) ? $_FILES['image']['name'] : '';
     $target_dir = "../assets/images/";
-    
+
     if (!empty($image)) {
         if (!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
@@ -37,12 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $target_file = $target_dir . basename($image);
         move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
     }
-     try {
-   
+    try {
+
         $sql = "INSERT INTO products (name, description, sku, price, stock, image, category_id, product_type_id, sub_category_id, unit_id) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
-        
+
         if ($stmt->execute([$name, $description, $sku, $price, $stock, $image, $category_id, $product_type_id, $sub_category_id, $unit_id])) {
             $msg = "💥 Dynamic Product Synced Successfully, Mama!";
             $type = "success";
