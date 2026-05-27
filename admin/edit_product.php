@@ -61,6 +61,24 @@
                         </select>
                     </div>
                 </div>
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold small">Sub-Category</label>
+                        <select name="sub_category_id" class="form-select" required>
+                            <?php foreach ($sub_categories as $subcat): ?>
+                                <option value="<?= $subcat['id'] ?>" <?= $product['sub_category_id'] == $subcat['id'] ? 'selected' : '' ?>><?= htmlspecialchars($subcat['name'] ?? $subcat['sub_category_name']) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold small">Product Unit</label>
+                        <select name="unit_id" class="form-select" required>
+                            <?php foreach ($units as $u): ?>
+                                <option value="<?= $u['id'] ?>" <?= $product['unit_id'] == $u['id'] ? 'selected' : '' ?>><?= htmlspecialchars($u['unit_name']) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
 
             </form>
         </div>
