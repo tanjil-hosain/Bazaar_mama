@@ -80,6 +80,12 @@
                     </div>
                 </div>
 
+                <div class="mb-5">
+                    <label class="form-label fw-semibold small">Product Showcase Image (Leave empty to keep current)</label>
+                    <input type="file" name="image" class="form-control" accept="image/*">
+                    <div class="mt-2">Current: <img src="../<?= htmlspecialchars($product['image']) ?>" width="60" class="border rounded"></div>
+                </div>
+
             </form>
         </div>
     </div>
