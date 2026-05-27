@@ -25,10 +25,48 @@
             <a href="manage_products.php" class="active"><i class="fa-solid fa-boxes-stacked me-2"></i> Available Products</a>
         </div>
     </div>
-     <div class="main-content">
+    <div class="main-content">
         <h3 class="fw-bold text-dark mb-4"><i class="fa-solid fa-boxes-stacked text-success me-2"></i>Stock Inventory</h3>
-        <?php if(!empty($msg)): ?><div class="alert alert-success border-0 shadow-sm"><?= $msg ?></div><?php endif; ?>
-     </div>
+        <?php if (!empty($msg)): ?><div class="alert alert-success border-0 shadow-sm"><?= $msg ?></div><?php endif; ?>
+    </div>
+
+    <div class="card border-0 shadow-sm p-4 rounded-4 bg-white">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Unit</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($products as $p): ?>
+                        <tr>
+                            <td><img src="../<?= htmlspecialchars($p['image']) ?>" class="product-img border"></td>
+                            <td class="fw-bold text-secondary"><?= htmlspecialchars($p['name']) ?></td>
+                            <td><span class="badge bg-info-subtle text-info"><?= htmlspecialchars($p['type_name']) ?></span></td>
+                            <td><?= htmlspecialchars($p['cat_name']) ?></td>
+                            <td class="fw-bold">৳ <?= number_format($p['price'], 2) ?></td>
+                            <td><?= htmlspecialchars($p['short_name']) ?></td>
+                            <td class="text-center">
+                                <a href="edit_product.php?id=<?= $p['id'] ?>" class="btn btn-sm btn-outline-primary me-1">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a href="manage_products.php?delete_id=<?= $p['id'] ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this product?')">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 </body>
 
