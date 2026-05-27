@@ -5,6 +5,16 @@ require_once '../config/db.php';
 
 $msg = "";
 
+if (isset($_GET['delete_id'])) {
+    $delete_id = $_GET['delete_id'];
+    $img_stmt = $pdo->prepare("SELECT image FROM products WHERE id = ?");
+    $img_stmt->execute([$delete_id]);
+    $prod = $img_stmt->fetch();
+    if($prod && file_exists("../".$prod['image'])) unlink("../".$prod['image']);
+
+    $stmt = $pdo->prepare("DELETE FROM products WHERE id = ?");
+    if ($stmt->execute([$delete_id])) $msg = "🗑️ Product removed successfully!";
+}
 ?>
 
 <!DOCTYPE html>
