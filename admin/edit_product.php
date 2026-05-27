@@ -85,6 +85,7 @@
                     <input type="file" name="image" class="form-control" accept="image/*">
                     <div class="mt-2">Current: <img src="../<?= htmlspecialchars($product['image']) ?>" width="60" class="border rounded"></div>
                 </div>
+                <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold">Update Product</button>
 
             </form>
         </div>
