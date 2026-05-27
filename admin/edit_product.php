@@ -29,6 +29,38 @@
                     <label class="form-label fw-semibold small">Description</label>
                     <textarea name="description" class="form-control" rows="3"><?= htmlspecialchars($product['description']) ?></textarea>
                 </div>
+                <div class="row g-3 mb-4">
+                    <div class="col-md-4">
+                        <label class="form-label fw-semibold small">SKU</label>
+                        <input type="text" name="sku" class="form-control" value="<?= htmlspecialchars($product['sku']) ?>" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label fw-semibold small">Price (BDT)</label>
+                        <input type="number" step="0.01" name="price" class="form-control" value="<?= $product['price'] ?>" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label fw-semibold small">Stock Volume</label>
+                        <input type="number" name="stock" class="form-control" value="<?= $product['stock'] ?>" required>
+                    </div>
+                </div>
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold small">Category Mapping</label>
+                        <select name="category_id" class="form-select" required>
+                            <?php foreach ($categories as $cat): ?>
+                                <option value="<?= $cat['id'] ?>" <?= $product['category_id'] == $cat['id'] ? 'selected' : '' ?>><?= htmlspecialchars($cat['name'] ?? $cat['category_name']) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold small">Product Type Connection</label>
+                        <select name="product_type_id" class="form-select" required>
+                            <?php foreach ($product_types as $pt): ?>
+                                <option value="<?= $pt['id'] ?>" <?= $product['product_type_id'] == $pt['id'] ? 'selected' : '' ?>><?= htmlspecialchars($pt['type_name']) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
 
             </form>
         </div>
