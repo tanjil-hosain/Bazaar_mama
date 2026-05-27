@@ -1,6 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') { header("Location: ../login.php"); exit(); }
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
+    header("Location: ../login.php");
+    exit();
+}
 require_once '../config/db.php';
 
 $categories     = $pdo->query("SELECT * FROM categories")->fetchAll();
@@ -8,16 +11,61 @@ $product_types  = $pdo->query("SELECT * FROM product_types")->fetchAll();
 $sub_categories = $pdo->query("SELECT * FROM sub_categories")->fetchAll();
 $units          = $pdo->query("SELECT * FROM product_units")->fetchAll();
 
-$msg = ""; $type = "";
+$msg = "";
+$type = "";
 
-if (!isset($_GET['id'])) { header("Location: manage_products.php"); exit(); }
+if (!isset($_GET['id'])) {
+    header("Location: manage_products.php");
+    exit();
+}
 $id = $_GET['id'];
 
 // Fetch existing product data
 $stmt = $pdo->prepare("SELECT * FROM products WHERE id = ?");
 $stmt->execute([$id]);
 $product = $stmt->fetch();
-if (!$product) { header("Location: manage_products.php"); exit(); }
+if (!$product) {
+    header("Location: manage_products.php");
+    exit();
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name            = isset($_POST['name']) ? trim($_POST['name']) : '';
+    $description     = isset($_POST['description']) ? trim($_POST['description']) : '';
+    $sku             = isset($_POST['sku']) ? trim($_POST['sku']) : '';
+    $price           = isset($_POST['price']) ? $_POST['price'] : 0;
+    $stock           = isset($_POST['stock']) ? $_POST['stock'] : 0;
+    $category_id     = !empty($_POST['category_id']) ? $_POST['category_id'] : null;
+    $product_type_id = !empty($_POST['product_type_id']) ? $_POST['product_type_id'] : null;
+    $sub_category_id = !empty($_POST['sub_category_id']) ? $_POST['sub_category_id'] : null;
+    $unit_id         = !empty($_POST['unit_id']) ? $_POST['unit_id'] : null;
+
+    $image = $product['image']; // Default keep old image
+    if (!empty($_FILES['image']['name'])) {
+        $target_dir = "../assets/images/";
+        if (!is_dir($target_dir)) mkdir($target_dir, 0777, true);
+
+        // Remove old image if exists
+        if (file_exists("../" . $product['image'])) unlink("../" . $product['image']);
+
+        $image = "assets/images/" . basename($_FILES['image']['name']);
+        move_uploaded_file($_FILES['image']['tmp_name'], "../" . $image);
+    }
+
+    try {
+        $sql = "UPDATE products SET name=?, description=?, sku=?, price=?, stock=?, image=?, category_id=?, product_type_id=?, sub_category_id=?, unit_id=? WHERE id=?";
+        $stmt = $pdo->prepare($sql);
+        if ($stmt->execute([$name, $description, $sku, $price, $stock, $image, $category_id, $product_type_id, $sub_category_id, $unit_id, $id])) {
+            $msg = "🎉 Product Updated Successfully, Mama!";
+            $type = "success";
+            // Refresh local product data data
+            $product['image'] = $image;
+        }
+    } catch (\PDOException $e) {
+        $msg = "❌ Update Failed! Error: " . $e->getMessage();
+        $type = "danger";
+    }
+}
 ?>
 
 <!DOCTYPE html>
