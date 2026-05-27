@@ -1,6 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') { header("Location: ../login.php"); exit(); }
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
+    header("Location: ../login.php");
+    exit();
+}
 require_once '../config/db.php';
 
 $msg = "";
@@ -10,11 +13,20 @@ if (isset($_GET['delete_id'])) {
     $img_stmt = $pdo->prepare("SELECT image FROM products WHERE id = ?");
     $img_stmt->execute([$delete_id]);
     $prod = $img_stmt->fetch();
-    if($prod && file_exists("../".$prod['image'])) unlink("../".$prod['image']);
+    if ($prod && file_exists("../" . $prod['image'])) unlink("../" . $prod['image']);
 
     $stmt = $pdo->prepare("DELETE FROM products WHERE id = ?");
     if ($stmt->execute([$delete_id])) $msg = "🗑️ Product removed successfully!";
 }
+
+$products = $pdo->query("
+    SELECT p.*, t.type_name, c.name as cat_name, u.short_name 
+    FROM products p
+    LEFT JOIN product_types t ON p.product_type_id = t.id
+    LEFT JOIN categories c ON p.category_id = c.id
+    LEFT JOIN product_units u ON p.unit_id = u.id
+    ORDER BY p.id DESC
+")->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -27,12 +39,44 @@ if (isset($_GET['delete_id'])) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <style>
-        body { background: #f8fafc; font-family: 'Segoe UI', sans-serif; }
-        .sidebar { height: 100vh; background: #1e293b; color: white; position: fixed; width: 260px; }
-        .sidebar a { color: #cbd5e1; text-decoration: none; display: block; padding: 14px 24px; }
-        .sidebar a:hover, .sidebar a.active { background: #334155; color: #38bdf8; border-left: 4px solid #38bdf8; }
-        .main-content { margin-left: 260px; padding: 40px; }
-        .product-img { width: 50px; height: 50px; object-fit: cover; border-radius: 8px; }
+        body {
+            background: #f8fafc;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .sidebar {
+            height: 100vh;
+            background: #1e293b;
+            color: white;
+            position: fixed;
+            width: 260px;
+        }
+
+        .sidebar a {
+            color: #cbd5e1;
+            text-decoration: none;
+            display: block;
+            padding: 14px 24px;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: #334155;
+            color: #38bdf8;
+            border-left: 4px solid #38bdf8;
+        }
+
+        .main-content {
+            margin-left: 260px;
+            padding: 40px;
+        }
+
+        .product-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
     </style>
 </head>
 
