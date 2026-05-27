@@ -9,6 +9,15 @@ $sub_categories = $pdo->query("SELECT * FROM sub_categories")->fetchAll();
 $units          = $pdo->query("SELECT * FROM product_units")->fetchAll();
 
 $msg = ""; $type = "";
+
+if (!isset($_GET['id'])) { header("Location: manage_products.php"); exit(); }
+$id = $_GET['id'];
+
+// Fetch existing product data
+$stmt = $pdo->prepare("SELECT * FROM products WHERE id = ?");
+$stmt->execute([$id]);
+$product = $stmt->fetch();
+if (!$product) { header("Location: manage_products.php"); exit(); }
 ?>
 
 <!DOCTYPE html>
