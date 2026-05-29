@@ -104,6 +104,18 @@
                             </p>
                         </div>
                     </div>
+                    <div class="mt-4 pt-3 border-top">
+                        <div class="d-flex flex-column flex-sm-row gap-3">
+                            <div class="input-group d-none d-sm-flex" style="max-width: 130px;">
+                                <button class="btn btn-outline-secondary border-secondary-subtle" type="button" onclick="let q = document.getElementById('qty'); if(q.value > 1) q.value--;"><i class="fa-solid fa-minus"></i></button>
+                                <input type="text" id="qty" class="form-control text-center bg-transparent border-secondary-subtle fw-bold" value="1">
+                                <button class="btn btn-outline-secondary border-secondary-subtle" type="button" onclick="let q = document.getElementById('qty'); if(parseInt(q.value) < <?= (int)($product['stock'] ?? 0) ?>) q.value++;"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <button class="btn btn-checkout flex-grow-1 btn-lg shadow-sm">
+                                <i class="fa-solid fa-cart-shopping me-2"></i> Add To Bazaar Basket
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
