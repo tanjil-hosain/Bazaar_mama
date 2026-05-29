@@ -21,6 +21,21 @@
                 </ol>
             </nav>
         </div>
+        <div class="card glass-card p-4 p-md-5">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="preview-box border p-4 shadow-sm">
+                        <?php if (($product['stock'] ?? 0) > 0): ?>
+                            <span class="position-absolute top-0 start-0 m-3 badge bg-success text-white px-3 py-2 rounded-pill fw-bold" style="z-index: 5;"><i class="fa-solid fa-circle-check me-1"></i> In Stock</span>
+                        <?php else: ?>
+                            <span class="position-absolute top-0 start-0 m-3 badge bg-danger text-white px-3 py-2 rounded-pill fw-bold" style="z-index: 5;"><i class="fa-solid fa-circle-xmark me-1"></i> Stock Out</span>
+                        <?php endif; ?>
+
+                        <img src="assets/images/<?= htmlspecialchars($product['image'] ?? 'default.jpg') ?>" alt="<?= htmlspecialchars($product['name'] ?? 'Product Image') ?>" class="product-main-img img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
