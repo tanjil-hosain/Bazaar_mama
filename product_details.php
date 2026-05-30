@@ -28,6 +28,8 @@ try {
 }catch (\PDOException $e) {
     die("Database Error, Mama! " . $e->getMessage());
 }
+
+include_once 'includes/header.php';
 ?>
 
 <!DOCTYPE html>
