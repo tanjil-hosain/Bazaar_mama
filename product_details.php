@@ -25,6 +25,8 @@ try {
         header("Location: index.php");
         exit();
     }
+}catch (\PDOException $e) {
+    die("Database Error, Mama! " . $e->getMessage());
 }
 ?>
 
