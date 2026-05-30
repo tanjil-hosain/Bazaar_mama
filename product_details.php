@@ -1,6 +1,12 @@
 <?php
 session_start();
 require_once 'config/db.php';
+
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    header("Location: index.php");
+    exit();
+}
+$id = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
