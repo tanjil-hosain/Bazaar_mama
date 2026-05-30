@@ -7,6 +7,25 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
     exit();
 }
 $id = $_GET['id'];
+
+try {
+    $stmt = $pdo->prepare("
+        SELECT p.*, t.type_name, c.name as cat_name, sc.name as sub_cat_name, u.unit_name, u.short_name 
+        FROM products p
+        LEFT JOIN product_types t ON p.product_type_id = t.id
+        LEFT JOIN categories c ON p.category_id = c.id
+        LEFT JOIN sub_categories sc ON p.sub_category_id = sc.id
+        LEFT JOIN product_units u ON p.unit_id = u.id
+        WHERE p.id = ?
+    ");
+    $stmt->execute([$id]);
+    $product = $stmt->fetch();
+
+    if (!$product) {
+        header("Location: index.php");
+        exit();
+    }
+}
 ?>
 
 <!DOCTYPE html>
