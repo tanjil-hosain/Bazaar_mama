@@ -5,6 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+    body { background-color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .glass-card { background: #ffffff; border: none; border-radius: 24px; box-shadow: 0 12px 40px rgba(0,0,0,0.03); overflow: hidden; }
+    .preview-box { background-color: #f1f5f9; border-radius: 16px; min-height: 400px; display: flex; align-items: center; justify-content: center; position: relative; }
+    .product-main-img { max-width: 100%; max-height: 380px; object-fit: contain; transition: transform 0.3s ease; }
+    .product-main-img:hover { transform: scale(1.03); }
+    .meta-badge { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; padding: 6px 14px; border-radius: 50px; text-transform: uppercase; }
+    .price-display { font-size: 2.2rem; font-weight: 800; color: #0984e3; }
+    .spec-pill { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 16px; }
+    .btn-checkout { background-color: #0984e3; border: none; font-weight: 700; padding: 14px 28px; border-radius: 12px; transition: all 0.2s ease; color: #fff; }
+    .btn-checkout:hover { background-color: #076bba; color: #fff; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(9, 132, 227, 0.25); }
+</style>
 </head>
 
 <body>
